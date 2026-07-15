@@ -1,0 +1,6 @@
+services:
+  web:
+    image: node:22
+    command: node dist/server.js
+  db:
+    image: postgres:17

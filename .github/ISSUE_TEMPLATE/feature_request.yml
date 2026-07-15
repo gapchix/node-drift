@@ -1,0 +1,16 @@
+name: Feature request
+description: A source, check, or integration you're missing
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: Where does your repo declare a Node version that nodrift doesn't see — or what drift slips through?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: What should the tool read or flag? A sketch of the report line you'd want to see is perfect.

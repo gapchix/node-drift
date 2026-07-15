@@ -1,0 +1,35 @@
+name: Bug report
+description: A wrong finding, a missed declaration, or a crash
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Creative version declarations are this tool's whole world — the
+        file that parsed wrong (or a `--json` output) is usually all it takes.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did the audit report, and what did you expect instead?
+      placeholder: e.g. "my Dockerfile's FROM node:22 is flagged as unknown"
+    validations:
+      required: true
+  - type: textarea
+    id: declaration
+    attributes:
+      label: The declaration that parsed wrong
+      description: Paste the relevant lines (Dockerfile FROM, workflow step, .nvmrc, …) — or the whole `npx nodrift --json` output.
+      render: text
+  - type: input
+    id: nodrift-version
+    attributes:
+      label: nodrift version
+      placeholder: e.g. 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: e.g. Windows 11 / macOS 15 / Ubuntu 24.04

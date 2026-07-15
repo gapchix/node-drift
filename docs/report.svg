@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="839" height="862" viewBox="0 0 839 862" role="img" aria-label="nodrift terminal report: four drift errors across Dockerfile, deploy workflow and netlify.toml, one info about CI matrix coverage, verdict: this repo believes in 4 different Node versions" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">
+  <rect width="839" height="862" rx="10" fill="#0d1117" stroke="#30363d"/>
+  <circle cx="24" cy="24" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="24" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="24" r="6" fill="#28c840"/>
+  <text x="419.5" y="28" text-anchor="middle" fill="#8b949e">npx node-drift</text>
+  <text x="24" y="71" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">nodrift v0.1.0</tspan></text>
+  <text x="24" y="91" xml:space="preserve"><tspan fill="#8b949e">scanned ~/my-app — 10 declarations across 7 files</tspan></text>
+  <text x="24" y="131" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">  dev pins</tspan></text>
+  <text x="24" y="151" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#3fb950">✓</tspan><tspan fill="#c9d1d9">  .nvmrc                        </tspan><tspan fill="#8b949e">                              </tspan><tspan fill="#c9d1d9">  22</tspan></text>
+  <text x="24" y="191" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">  ranges</tspan></text>
+  <text x="24" y="211" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#3fb950">✓</tspan><tspan fill="#c9d1d9">  package.json                  </tspan><tspan fill="#8b949e">engines.node                  </tspan><tspan fill="#c9d1d9">  &gt;=20</tspan></text>
+  <text x="24" y="251" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">  docker &amp; deploy</tspan></text>
+  <text x="24" y="271" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#3fb950">✓</tspan><tspan fill="#c9d1d9">  docker-compose.yml            </tspan><tspan fill="#8b949e">service "web"                 </tspan><tspan fill="#c9d1d9">  node:22</tspan></text>
+  <text x="24" y="291" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  Dockerfile                    </tspan><tspan fill="#8b949e">FROM node (stage "build")     </tspan><tspan fill="#c9d1d9">  node:24-alpine</tspan></text>
+  <text x="24" y="311" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  Dockerfile                    </tspan><tspan fill="#8b949e">FROM node                     </tspan><tspan fill="#c9d1d9">  node:24-alpine</tspan></text>
+  <text x="24" y="331" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  netlify.toml                  </tspan><tspan fill="#8b949e">NODE_VERSION                  </tspan><tspan fill="#c9d1d9">  18</tspan></text>
+  <text x="24" y="371" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">  ci</tspan></text>
+  <text x="24" y="391" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#3fb950">✓</tspan><tspan fill="#c9d1d9">  .github/workflows/ci.yml      </tspan><tspan fill="#8b949e">setup-node matrix (job "test")</tspan><tspan fill="#c9d1d9">  20, 22, 24</tspan></text>
+  <text x="24" y="411" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  .github/workflows/deploy.yml  </tspan><tspan fill="#8b949e">setup-node (job "deploy")     </tspan><tspan fill="#c9d1d9">  20</tspan></text>
+  <text x="24" y="451" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">  findings</tspan></text>
+  <text x="24" y="491" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  .github/workflows/deploy.yml (job "deploy") runs Node 20 — the repo develops on Node 22 (.nvmrc)</tspan></text>
+  <text x="24" y="511" xml:space="preserve"><tspan fill="#8b949e">     This workflow is not a test matrix — it builds or deploys on a major nobody</tspan></text>
+  <text x="24" y="531" xml:space="preserve"><tspan fill="#8b949e">     develops against.</tspan></text>
+  <text x="24" y="571" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  Dockerfile (stage "build") runs Node 24 — the repo develops on Node 22 (.nvmrc)</tspan></text>
+  <text x="24" y="591" xml:space="preserve"><tspan fill="#8b949e">     What you ship runs on a different major than what you develop and test on.</tspan></text>
+  <text x="24" y="631" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  Dockerfile (FROM node) runs Node 24 — the repo develops on Node 22 (.nvmrc)</tspan></text>
+  <text x="24" y="651" xml:space="preserve"><tspan fill="#8b949e">     What you ship runs on a different major than what you develop and test on.</tspan></text>
+  <text x="24" y="691" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#ff7b72">✖</tspan><tspan fill="#c9d1d9">  netlify.toml (NODE_VERSION) runs Node 18 — the repo develops on Node 22 (.nvmrc)</tspan></text>
+  <text x="24" y="711" xml:space="preserve"><tspan fill="#8b949e">     What you ship runs on a different major than what you develop and test on.</tspan></text>
+  <text x="24" y="751" xml:space="preserve"><tspan fill="#c9d1d9">  </tspan><tspan fill="#39c5cf">ℹ</tspan><tspan fill="#c9d1d9">  CI matrices also test Node 20, 24 — extra coverage, not drift</tspan></text>
+  <text x="24" y="791" xml:space="preserve"><tspan fill="#c9d1d9">4 errors · 0 warnings · 1 info</tspan></text>
+  <text x="24" y="811" xml:space="preserve"><tspan fill="#f0f6fc" font-weight="600">this repo believes in 4 different Node versions (18, 20, 22, 24). pick one.</tspan></text>
+  <text x="24" y="831" xml:space="preserve"><tspan fill="#8b949e">report-only mode — pass --fail-on drift to gate CI</tspan></text>
+</svg>

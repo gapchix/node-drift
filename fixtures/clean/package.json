@@ -1,0 +1,8 @@
+{
+  "name": "clean-fixture",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

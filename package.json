@@ -1,0 +1,75 @@
+{
+  "name": "node-drift",
+  "version": "0.1.0",
+  "description": "Finds every place your repo declares a Node.js version — .nvmrc, engines, Dockerfiles, CI workflows — and reports where they disagree.",
+  "keywords": [
+    "node",
+    "version",
+    "nvmrc",
+    "engines",
+    "volta",
+    "dockerfile",
+    "docker",
+    "ci",
+    "github-actions",
+    "drift",
+    "audit",
+    "lint",
+    "devops"
+  ],
+  "license": "MIT",
+  "author": "Vladislav Gapchinsky (https://gapchix.io)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gapchix/node-drift.git"
+  },
+  "bugs": "https://github.com/gapchix/node-drift/issues",
+  "homepage": "https://github.com/gapchix/node-drift#readme",
+  "type": "module",
+  "bin": {
+    "nodrift": "dist/cli.js",
+    "node-drift": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "demo": "node dist/cli.js fixtures/drifty",
+    "svg": "node scripts/render-report-svg.mjs",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test"
+  },
+  "dependencies": {
+    "picocolors": "^1.1.1",
+    "semver": "^7.7.0",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.1",
+    "@types/semver": "^7.7.0",
+    "eslint": "^10.7.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "ignore": ["fixtures*"],
+  "failOn": ["drift", "float", "untested"]
+}
